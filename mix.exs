@@ -13,7 +13,7 @@ defmodule Teseo.Mixfile do
   # Type `mix help compile.app` for more information
   def application do
     [mod: {Teseo, []},
-    applications: [:logger,:postgrex,:ecto]]
+    applications: [:logger,:postgrex,:ecto,:poison]]
   end
 
   # Dependencies can be Hex packages:
@@ -27,6 +27,7 @@ defmodule Teseo.Mixfile do
   # Type `mix help deps` for more examples and options
   defp deps do
     [{:postgrex, ">= 0.0.0"},
+    {:poison, "~> 1.3"},
     {:ecto, "~> 0.10.2"}]
   end
 end

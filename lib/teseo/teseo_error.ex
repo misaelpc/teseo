@@ -9,9 +9,11 @@ defmodule Teseo.Error do
     field :message, :string
     field :request_headers, :string
     field :http_code, :string
+    field :user_id, :string
     field :client_id, :string #id del cliente
     field :request_body, :string
     field :error_details, :string # as json
+    timestamps
   end
 
 
