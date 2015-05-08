@@ -21,7 +21,7 @@ defmodule Teseo.ErrorReporter do
                            message: error_messages[stage], 
                              stage: stage,
                      error_details: error_details,
-                              code: 1401}
+                              code: internal_codes[stage]}
   end
 
 
