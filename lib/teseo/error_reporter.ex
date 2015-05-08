@@ -14,9 +14,9 @@ defmodule Teseo.ErrorReporter do
               user_id: client_opts[:user_id],
          request_body: to_string(client_opts[:body]),
         error_details: error_encode}
-    saved_error = Teseo.Repo.insert(teseo_error)
+    #saved_error = Teseo.Repo.insert(teseo_error)
     %Teseo.ErrorReporter{http_code: http_codes[stage], 
-                          error_id: saved_error.id, 
+                          error_id: 8, 
                            headers: headers,
                            message: error_messages[stage], 
                              stage: stage,
