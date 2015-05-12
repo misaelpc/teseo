@@ -16,7 +16,7 @@ defmodule Teseo.ErrorReporter do
         error_details: error_encode}
     saved_error = Teseo.Repo.insert(teseo_error)
     %Teseo.ErrorReporter{http_code: http_codes[stage], 
-                          error_id: 8, 
+                          error_id: saved_error.id, 
                            headers: headers,
                            message: error_messages[stage], 
                              stage: stage,

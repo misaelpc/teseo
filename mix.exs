@@ -28,6 +28,6 @@ defmodule Teseo.Mixfile do
   defp deps do
     [{:postgrex, ">= 0.0.0"},
     {:poison, "~> 1.3"},
-    {:ecto, "~> 0.10.2"}]
+    {:ecto, "~> 0.11"}]
   end
 end
