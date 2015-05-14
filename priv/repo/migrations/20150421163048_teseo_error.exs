@@ -5,13 +5,13 @@ defmodule Teseo.Repo.Migrations.TeseoError do
     create table(:teseo_error) do
       add :code, :string
       add :stage, :string
-      add :message, :string
-      add :request_headers, :string
+      add :message, :text
+      add :request_headers, :text
       add :http_code, :string
       add :client_id, :string #id del cliente
       add :user_id, :string #id del usuario
       add :request_body, :text
-      add :error_details, :string # as json
+      add :error_details, :text # as json
       timestamps
     end
   end

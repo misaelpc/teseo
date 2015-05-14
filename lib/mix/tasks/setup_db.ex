@@ -46,7 +46,7 @@ defmodule Mix.Tasks.Teseo do
           add :client_id, :string #id del cliente
           add :user_id, :string #id del usuario
           add :request_body, :text
-          add :error_details, :string # as json
+          add :error_details, :text # as json
           timestamps
         end
       end
