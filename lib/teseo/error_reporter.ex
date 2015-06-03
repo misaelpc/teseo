@@ -4,7 +4,6 @@ defmodule Teseo.ErrorReporter do
   def report(stage,error_details,headers,client_opts \\ []) do
     {:ok,error_encode} = Poison.encode(error_details)
     {:ok,headers_encode} = Poison.encode(headers)
-
     teseo_error = %Teseo.Error{code: to_string(internal_codes[stage]), 
                 stage: to_string(stage), 
               message: error_messages[stage],
