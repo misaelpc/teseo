@@ -13,6 +13,8 @@ defmodule Teseo.Error do
     field :client_id, :string #id del cliente
     field :request_body, :string
     field :error_details, :string # as json
+    field :request_url, :string
+    field :transaction_id, :string
     timestamps
   end
 

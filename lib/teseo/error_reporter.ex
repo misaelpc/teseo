@@ -1,23 +1,25 @@
 defmodule Teseo.ErrorReporter do
-  defstruct http_code: "", error_id: "", headers: "",message: "", stage: "", error_details: "", code: "" 
+  defstruct http_code: "", error_id: "", headers: "",message: "", stage: "", error_details: "", code: ""
 
   def report(stage,error_details,headers,client_opts \\ []) do
     {:ok,error_encode} = Poison.encode(error_details)
     {:ok,headers_encode} = Poison.encode(headers)
-    teseo_error = %Teseo.Error{code: to_string(internal_codes[stage]), 
-                stage: to_string(stage), 
+    teseo_error = %Teseo.Error{code: to_string(internal_codes[stage]),
+                stage: to_string(stage),
               message: error_messages[stage],
       request_headers: headers_encode,
             http_code: to_string(http_codes[stage]),
             client_id: client_opts[:client_id],
               user_id: client_opts[:user_id],
+          request_url: "Aqui la url",
+       transaction_id: "Aqui el id de la transaction",
          request_body: to_string(client_opts[:body]),
         error_details: error_encode}
     saved_error = Teseo.Repo.insert(teseo_error)
-    %Teseo.ErrorReporter{http_code: http_codes[stage], 
-                          error_id: saved_error.id, 
+    %Teseo.ErrorReporter{http_code: http_codes[stage],
+                          error_id: saved_error.id,
                            headers: headers,
-                           message: error_messages[stage], 
+                           message: error_messages[stage],
                              stage: stage,
                      error_details: error_details,
                               code: internal_codes[stage]}
@@ -45,5 +47,5 @@ defmodule Teseo.ErrorReporter do
     Application.get_env(:teseo, :internal_codes)
   end
 
-  
+
 end

@@ -1,7 +1,7 @@
 defmodule Teseo.Repo.Migrations.TeseoError do
   use Ecto.Migration
 
-  def up do
+  def change do
     create table(:teseo_error) do
       add :code, :string
       add :stage, :string
@@ -13,6 +13,13 @@ defmodule Teseo.Repo.Migrations.TeseoError do
       add :request_body, :text
       add :error_details, :text # as json
       timestamps
+    end
+  end
+
+  def up do
+    alter table(:teseo_error) do
+      add :request_url,    :text
+      add :transaction_id, :string
     end
   end
 
