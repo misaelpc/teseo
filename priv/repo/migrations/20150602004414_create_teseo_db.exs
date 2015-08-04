@@ -6,7 +6,7 @@ defmodule Teseo.Repo.Migrations.TeseoError do
       add :code, :string
       add :stage, :string
       add :message, :text
-      add :level, :int
+      add :level, :integer
       add :request_headers, :text
       add :http_code, :string
       add :client_id, :string #id del cliente
